@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinGecko.Client", "CoinGecko.Client\CoinGecko.Client.csproj", "{980DD992-3B05-4217-B0B8-745CD3014BEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinGecko.Client", "CoinGecko.Client\CoinGecko.Client.csproj", "{980DD992-3B05-4217-B0B8-745CD3014BEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinGecko.Client.Test", "CoinGecko.Client.Test\CoinGecko.Client.Test.csproj", "{DADFFE31-7F67-43B4-BA00-31D15B9C8917}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinGecko.Client.Test", "CoinGecko.Client.Test\CoinGecko.Client.Test.csproj", "{DADFFE31-7F67-43B4-BA00-31D15B9C8917}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
