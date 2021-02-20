@@ -10,5 +10,6 @@ namespace CoinGecko.Client.Clients.Interfaces
     {
         Task<IList<SimplePrice>> GetSimplePriceAsList(SimplePriceFilter filter = null);
         Task<SimplePriceResponse> GetSimplePriceAsDictionary(SimplePriceFilter filter = null);
+        Task<IList<string>> GetSimpleSupportVsCurrenciesAsList();
     }
 }

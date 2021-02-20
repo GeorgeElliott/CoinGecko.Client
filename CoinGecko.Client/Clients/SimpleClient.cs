@@ -30,5 +30,11 @@ namespace CoinGecko.Client.Clients
                 apiUrl += $"?{filter.ConvertToQueryString(filter)}";
             return await GetAsync<SimplePriceResponse>(apiUrl);
         }
+
+        public async Task<IList<string>> GetSimpleSupportVsCurrenciesAsList()
+        {
+            var url = $"{baseRoute}/supported_vs_currencies";
+            return await GetAsync<IList<string>>(url);
+        }
     }
 }

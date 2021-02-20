@@ -50,5 +50,16 @@ namespace CoinGecko.Client.Test
             Assert.IsTrue(resultAsList.FirstOrDefault().CurrencyEquivalent.FirstOrDefault().Name == "usd");
             Assert.IsNotNull(resultAsList.FirstOrDefault().CurrencyEquivalent.FirstOrDefault().Value);
         }
+
+        [Test]
+        public async Task Test_Supported_Vs_Currencies_Returns_Data()
+        {
+            var results = await simpleClient.GetSimpleSupportVsCurrenciesAsList();
+
+            Assert.IsFalse(results.Any(x => string.IsNullOrWhiteSpace(x)));
+            Assert.IsTrue(results.Contains("usd"));
+            Assert.IsTrue(results.Contains("btc"));
+            Assert.IsTrue(results.Contains("xlm"));
+        }
     }
 }
