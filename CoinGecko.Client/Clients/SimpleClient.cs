@@ -17,7 +17,7 @@ namespace CoinGecko.Client.Clients
         {
         }
 
-        public async Task<IEnumerable<SimplePrice>> GetSimplePriceAsEnumerable(SimplePriceFilter filter = null)
+        public async Task<IList<SimplePrice>> GetSimplePriceAsList(SimplePriceFilter filter = null)
         {
             var response = await GetSimplePriceAsDictionary(filter);
             return response.DictionaryToSimplePriceList();

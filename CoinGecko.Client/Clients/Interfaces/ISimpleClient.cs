@@ -8,7 +8,7 @@ namespace CoinGecko.Client.Clients.Interfaces
 {
     public interface ISimpleClient
     {
+        Task<IList<SimplePrice>> GetSimplePriceAsList(SimplePriceFilter filter = null);
         Task<SimplePriceResponse> GetSimplePriceAsDictionary(SimplePriceFilter filter = null);
-        Task<IEnumerable<SimplePrice>> GetSimplePriceAsEnumerable(SimplePriceFilter filter = null);
     }
 }
