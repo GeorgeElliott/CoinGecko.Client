@@ -1,6 +1,7 @@
 using CoinGecko.Client.Clients;
 using CoinGecko.Client.Filters;
 using NUnit.Framework;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -29,10 +30,25 @@ namespace CoinGecko.Client.Test
             {
                 "usd"
             };
-            var filter = new SimplePriceFilter(ids, currencies);
+
+            var filter = new SimplePriceFilter(ids, currencies, true);
             var resultAsDictionary = await simpleClient.GetSimplePriceAsDictionary(filter);
-            var resultAsList= await simpleClient.GetSimplePriceAsEnumerable(filter);
-            Assert.Pass();
+
+            Assert.IsTrue(resultAsDictionary.Count == 1);
+            Assert.IsNotNull(resultAsDictionary);
+            Assert.IsTrue(resultAsDictionary.FirstOrDefault().Key == "algorand");
+            Assert.IsNotNull(resultAsDictionary.FirstOrDefault().Value);
+            Assert.IsTrue(resultAsDictionary.FirstOrDefault().Value.FirstOrDefault().Key == "usd");
+            Assert.IsNotNull(resultAsDictionary.FirstOrDefault().Value.FirstOrDefault().Value);
+
+            var resultAsList= await simpleClient.GetSimplePriceAsList(filter);
+
+            Assert.IsTrue(resultAsList.Count == 1);
+            Assert.IsNotNull(resultAsList);
+            Assert.IsTrue(resultAsList.FirstOrDefault().Name == "algorand");
+            Assert.IsNotNull(resultAsList.FirstOrDefault().CurrencyEquivalent);
+            Assert.IsTrue(resultAsList.FirstOrDefault().CurrencyEquivalent.FirstOrDefault().Name == "usd");
+            Assert.IsNotNull(resultAsList.FirstOrDefault().CurrencyEquivalent.FirstOrDefault().Value);
         }
     }
 }

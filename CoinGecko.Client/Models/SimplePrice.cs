@@ -7,19 +7,19 @@ namespace CoinGecko.Client.Models
     public class SimplePrice
     {
         public string Name { get; set; }
-        public IEnumerable<CurrencyEquivalent> FiatPricing { get; set; }
+        public IList<CurrencyEquivalent> CurrencyEquivalent { get; set; }
 
-        public IEnumerable<SimplePrice> DictionaryToSimplePriceList(SimplePriceResponse simplePrices)
+        public IList<SimplePrice> DictionaryToSimplePriceList(SimplePriceResponse simplePrices)
         {
             return simplePrices.Select(x => new SimplePrice
             {
                 Name = x.Key,
-                FiatPricing = x.Value.Select(f => new CurrencyEquivalent
+                CurrencyEquivalent = x.Value.Select(f => new CurrencyEquivalent
                 {
                     Name = f.Key,
                     Value = f.Value
-                })
-            });
+                }).ToList()
+            }).ToList();
         }
     }
 }
